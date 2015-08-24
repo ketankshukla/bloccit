@@ -21,6 +21,18 @@ posts = Post.all
   )
 end
 
+#Asssignment 30
+#Search by title. If title is not found, then create record with title and body
+Post.find_or_create_by(title: "This is a unique title") do |post|
+  post.body = "This is a unique body text"
+end
+#If the comment doesn't exist, insert it and assign the incremented post_id to
+#the comment table.
+Comment.find_or_create_by(body: "This is a unique comment body") do |comment|
+  comment.post_id = Post.count + 1
+end
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+
