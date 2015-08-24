@@ -1,7 +1,28 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
 
-  get 'welcome/about'
+  #The 4 get methods below were created when we generated the Posts controller
+  #However, there is a way we can refactor all 4 into one method, the resources method
+  #as shown below
+
+  #get 'posts/index'
+
+  #get 'posts/show'
+
+  #get 'posts/new'
+
+  #get 'posts/edit'
+
+  resources :posts
+
+  #Comment this out because we've declared the index view as the root view below
+  #get 'welcome/index'
+
+  #commented out the line below so the users just have to type /about instead of
+  #/welcome/about
+  #get 'welcome/about'
+  get 'about' => 'welcome#about'
+
+
 
   #The following line is an implied hash
   #It could also be re-written as root({to: 'welcome#index'})
