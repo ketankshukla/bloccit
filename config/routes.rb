@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'advertisements/index'
+
+  get 'advertisements/show'
+
+  get 'advertisements/new'
+
+  get 'advertisements/create'
+
   #The 4 get methods below were created when we generated the Posts controller
   #However, there is a way we can refactor all 4 into one method, the resources method
   #as shown below
@@ -13,6 +21,8 @@ Rails.application.routes.draw do
   #get 'posts/edit'
 
   resources :posts
+
+  resources :advertisements
 
   #Comment this out because we've declared the index view as the root view below
   #get 'welcome/index'
