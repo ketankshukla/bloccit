@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   #get 'posts/new'
 
   #get 'posts/edit'
-
-  resources :posts
-
+  #resources :topics
+  #resources :posts
+  resources :topics do
+    # #34
+    resources :posts, except: [:index]
+  end
   #Comment this out because we've declared the index view as the root view below
   #get 'welcome/index'
 
