@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     # #34
     resources :posts, except: [:index]
   end
+
+  resources :users, only: [:new, :create]
+
   #Comment this out because we've declared the index view as the root view below
   #get 'welcome/index'
 

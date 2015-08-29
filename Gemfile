@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 
-# #1
 group :production do
   gem 'pg'
   gem 'rails_12factor'
@@ -32,3 +30,5 @@ gem 'jquery-rails'
 gem 'turbolinks'
 #Twitter Bootstrap
 gem 'bootstrap-sass'
+# Used for encrypting User passwords
+gem 'bcrypt'
