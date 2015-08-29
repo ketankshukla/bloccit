@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create]
-
+#assignment 37
   post 'users/confirm' => 'users#confirm'
 
   #Comment this out because we've declared the index view as the root view below

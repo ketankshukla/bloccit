@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  #assignment 37
   def confirm
     @user = User.new
     @user.name = params[:user][:name]
