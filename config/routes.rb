@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+  resources :sessions, only: [:new, :create, :destroy]
+
   #Comment this out because we've declared the index view as the root view below
   #get 'welcome/index'
 
