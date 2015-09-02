@@ -49,13 +49,18 @@ class TopicsController < ApplicationController
   def destroy
     @topic = Topic.find(params[:id])
 
-    if @topic.destroy
+    if current_user && current_user.moderator?
+      flash[:error] = "You don't have permission to do that."
+      redirect_to action: :index
+    elsif current_user && current_user.admin?
       flash[:notice] = "\"#{@topic.name}\" was deleted successfully."
+      #redirect_to posts_path
       redirect_to action: :index
     else
-      flash[:error] = "There was an error deleting the topic."
+      flash[:error] = "There was an error deleting the post."
       render :show
     end
+
   end
 
   private
@@ -65,8 +70,8 @@ class TopicsController < ApplicationController
   end
 
   def authorize_user
-    unless current_user.admin?
-      flash[:error] = "You must be an admin to do that."
+    unless current_user.admin? || current_user.moderator?
+      flash[:error] = "You don't have permission to do that."
       redirect_to topics_path
     end
   end

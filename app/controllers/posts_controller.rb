@@ -53,14 +53,20 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
 
-    if @post.destroy
-      flash[:notice] = "\"#{@post.title}\" was deleted successfully."
-      #redirect_to posts_path
-      redirect_to @post.topic
+    if current_user && (current_user != @post.user) && current_user.moderator?
+      flash[:error] = "You don't have permission to do that."
+      redirect_to [@post.topic, @post]
     else
-      flash[:error] = "There was an error deleting the post."
-      render :show
+      if @post.destroy
+        flash[:notice] = "\"#{@post.title}\" was deleted successfully."
+        #redirect_to posts_path
+        redirect_to @post.topic
+      else
+        flash[:error] = "There was an error deleting the post."
+        render :show
+      end
     end
+
   end
 
   # remember to add private methods to the bottom of the file. Any method defined below private, will be private.
@@ -73,8 +79,8 @@ class PostsController < ApplicationController
   def authorize_user
     post = Post.find(params[:id])
     # #11
-    unless current_user == post.user || current_user.admin?
-      flash[:error] = "You must be an admin to do that."
+    unless current_user == post.user || current_user.admin? || current_user.moderator?
+      flash[:error] = "You don't have permission to do that."
       redirect_to [post.topic, post]
     end
   end
