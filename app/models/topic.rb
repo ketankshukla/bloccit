@@ -5,5 +5,7 @@ class Topic < ActiveRecord::Base
   # #14
   has_many :labels, through: :labelings
 
+  has_one :rating, as: :rateable
+
   default_scope { order('created_at DESC') }
 end

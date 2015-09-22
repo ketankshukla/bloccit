@@ -8,6 +8,7 @@
 <div class="row">
   <div class="col-md-8">
     <%= render partial: "labels/list", locals: { labels: @post.labels } %>
+    <%= render partial: "ratings/list", locals: { rating: @post.rating } %>
     <br />
   </div>
 </div>

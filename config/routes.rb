@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'ratings/show'
+
   resources :labels, only: [:show]
 
   #The 4 get methods below were created when we generated the Posts controller
