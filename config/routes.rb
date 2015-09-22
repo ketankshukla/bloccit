@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :labels, only: [:show]
+
   #The 4 get methods below were created when we generated the Posts controller
   #However, there is a way we can refactor all 4 into one method, the resources method
   #as shown below

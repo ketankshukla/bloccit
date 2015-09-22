@@ -23,4 +23,10 @@ RSpec.describe Topic, type: :model do
         expect(topic.public).to be(true)
       end
     end
+
+  # #10
+  it { should have_many(:labelings) }
+  # #11
+  it { should have_many(:labels).through(:labelings) }
+
   end
