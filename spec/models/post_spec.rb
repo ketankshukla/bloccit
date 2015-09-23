@@ -2,7 +2,6 @@ require 'rails_helper'
 include RandomData
 
 RSpec.describe Post, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
 
 
   let(:topic) { Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph) }
@@ -16,6 +15,7 @@ RSpec.describe Post, type: :model do
 
   it { should have_many(:comments) }
   it { should have_many(:votes) }
+  it { should have_many(:favorites) }
 
   it { should belong_to(:topic) }
   it { should belong_to(:user) }
