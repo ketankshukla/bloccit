@@ -4,7 +4,8 @@ RSpec.describe LabelsController, type: :controller do
 
   describe "GET #show" do
 
-    let(:my_label) { Label.create!(name: "L1") }
+    #let(:my_label) { Label.create!(name: "L1") }
+    let(:my_label) { create(:label) }
 
     it "returns http success" do
       get :show, { id: my_label.id }
