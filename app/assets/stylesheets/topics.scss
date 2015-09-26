@@ -1,3 +1,14 @@
 // Place all the styles related to the Topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.private-topic {
+  color: black;
+  background-color: red;
+  font: bold 10px arial, sans-serif;
+}
+
+.public-topic {
+  color: black;
+  background-color: LawnGreen;
+  font: bold 10px arial, sans-serif;
+}

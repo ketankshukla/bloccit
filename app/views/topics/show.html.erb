@@ -1,4 +1,11 @@
-<h1><%= @topic.name %></h1>
+<h1>
+  <%= @topic.name %>
+    <% if is_topic_private(@topic) %>
+        <small class="private-topic"> Private </small>
+    <% else %>
+        <small class="public-topic"> Public </small>
+    <% end %>
+</h1>
 
 <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
 
