@@ -29,7 +29,9 @@
   </div>
     <div class="col-md-8">
         <h3>Comments</h3>
-        <%= render @post.comments %>
+        <div class='js-comments'>
+          <%= render @post.comments %>
+        </div>
     </div>
     <% if user_is_authorized_for_post?(@post) %>
       <div class="col-md-4">
@@ -53,6 +55,8 @@
     </div>
 
     <% if current_user %>
-      <%= render 'comments/form', comment: Comment.new, post: @post %>
+      <div class='new-comment'>
+        <%= render 'comments/form', comment: Comment.new, post: @post %>
+      </div>
     <% end %>
 </div>
