@@ -45,4 +45,13 @@ Rails.application.routes.draw do
   #The following line is an implied hash
   #It could also be re-written as root({to: 'welcome#index'})
   root to: 'welcome#index'
+
+
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: [:index, :show]
+      resources :topics, only: [:index, :show]
+    end
+  end
+
 end
