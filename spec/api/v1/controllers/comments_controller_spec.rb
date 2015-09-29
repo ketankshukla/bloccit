@@ -11,12 +11,12 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
   context "unauthenticated user" do
 
     it "GET index returns http success" do
-      get :index
+      get :index, post_id: my_post.id
       expect(response).to have_http_status(:success)
     end
 
     it "GET show returns http success" do
-      get :show, id: my_post.id
+      get :show, post_id: my_post.id, id: my_comment.id
       expect(response).to have_http_status(:success)
     end
 
@@ -29,12 +29,12 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
     end
 
     it "GET index returns http success" do
-      get :index
+      get :index, post_id: my_post.id
       expect(response).to have_http_status(:success)
     end
 
     it "GET show returns http success" do
-      get :show, id: my_post.id
+      get :show, post_id: my_post.id, id: my_comment.id
       expect(response).to have_http_status(:success)
     end
 
